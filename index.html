@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Raffle Ticket Progress</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navbar__container">
+                <a href="/" id="navbar__logo">KEEAN'S RAFFLE</a>                
+            </div>
+        </nav>        
+        <div class="main">
+            <div class="main__container">
+                <div class="main__content">
+                    <h1>Goal: $2000</h1>
+                    <h2>Current: $400</h2>
+                    <input type="number" value="0" min="0" max="200" class="ticketSold" name="ticketSold" id="ticketSold">
+                </div>
+                <div class="progress__container">
+                    <div class="progressbar__container">
+                        <div class="img background-img"></div>
+                        <div class="img foreground-img" id="foregroundImg"></div>
+                    </div>
+                    <div class="status">                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <progress-bar percent="65"></progress-bar> -->
+        
+        <script src="/progress.js"></script>
+    </body>
+
+</html>
