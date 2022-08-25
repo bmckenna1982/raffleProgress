@@ -11,7 +11,7 @@ function clearForm() {
 }
 
 function updateCount() {
-    fetch('http://localhost:8000/tickets')
+    fetch('http://localhost:8000/api/tickets')
         .then(res => {
             if(!res.ok) {
                 throw new Error(res.statusText)
@@ -19,9 +19,9 @@ function updateCount() {
             return res.json()
         })
         .then((data) => {
-            document.getElementById('ticketSold').innerText = `Tickets sold: ${data.Count.toString()}`;
-            document.getElementById('current').innerText = `Current: $${(data.Count * 10)}`;
-            let percentGoal = 100 -(( data.Count/200 ) *100);
+            document.getElementById('ticketSold').innerText = `Tickets sold: ${data.length}`;
+            document.getElementById('current').innerText = `Current: $${(data.length * 10)}`;
+            let percentGoal = 100 -(( data.length/200 ) *100);
             document.getElementById('foregroundImg').style.height= `${percentGoal}%`;
         });
 }
@@ -31,12 +31,15 @@ function submitTicket() {
     const lastName = document.getElementById('lastName').value;
     const ticketNum = document.getElementById('ticketNum').value;
     let body = {
-        ticketId:  ticketNum,
-        lastName: lastName,
-        firstName: firstName
+        ticketid:  ticketNum,
+        lastname: lastName,
+        firstname: firstName
     };
-    fetch('http://localhost:8000/tickets', {
-            method: 'PUT',
+    fetch('http://localhost:8000/api/tickets', {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json'
+            },
             body: JSON.stringify(body)
         })
         .then(res => {
