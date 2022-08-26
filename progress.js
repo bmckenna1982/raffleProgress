@@ -11,7 +11,7 @@ function clearForm() {
 }
 
 function updateCount() {
-    fetch('http://localhost:8000/api/tickets')
+    fetch('https://blooming-scrubland-09549.herokuapp.com/api/tickets')
         .then(res => {
             if(!res.ok) {
                 throw new Error(res.statusText)
@@ -35,7 +35,7 @@ function submitTicket() {
         lastname: lastName,
         firstname: firstName
     };
-    fetch('http://localhost:8000/api/tickets', {
+    fetch('https://blooming-scrubland-09549.herokuapp.com/api/tickets', {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json'
