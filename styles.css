@@ -107,11 +107,11 @@
 }
 
 .background-img {
-    background-image: url('/images/Goalie-mask-red.svg');
+    background-image: url('./images/Goalie-mask-red.svg');
 }
 
 .foreground-img {
-    background-image: url('/images/Goalie-mask.svg');
+    background-image: url('./images/Goalie-mask.svg');
     height: 0;
 }
 
