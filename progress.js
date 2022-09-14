@@ -59,21 +59,45 @@ function submitTicket() {
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const ticketNum = document.getElementById('ticketNum').value;
+    
     if( !firstName || !lastName || !ticketNum ) {
         alert("To submit a ticket you must have a ticket number, first name, and last name");
         return
     }
-    let body = {
+
+    let ticket = {
         ticketid:  ticketNum,
         lastname: lastName,
         firstname: firstName
     };
+    
+    if(ticketNum.includes(",")) {
+        let ticketNums = ticketNum.split(",")
+        ticketNums.map(num => {
+            num = num.trim();
+            if(num.length > 5) {
+                ticket.ticketid = num;
+                sendTicket(ticket);
+            }
+        })
+    } else {
+        sendTicket(ticket)
+    }
+    
+}
+
+function sendTicket(ticket) {
+    // let body = {
+    //     ticketid:  ticketNum,
+    //     lastname: lastName,
+    //     firstname: firstName
+    // };
     fetch('https://blooming-scrubland-09549.herokuapp.com/api/tickets', {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json'
             },
-            body: JSON.stringify(body)
+            body: JSON.stringify(ticket)
         })
         .then(res => {
             if(!res.ok) {
