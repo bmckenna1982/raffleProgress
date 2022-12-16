@@ -14,7 +14,7 @@ function clearForm() {
 }
 
 function updateCount() {
-    fetch('https://blooming-scrubland-09549.herokuapp.com/api/tickets')
+    fetch('https://raffle-server.onrender.com/api/tickets')
         .then(res => {
             if(!res.ok) {
                 throw new Error(res.statusText)
@@ -92,7 +92,7 @@ function sendTicket(ticket) {
     //     lastname: lastName,
     //     firstname: firstName
     // };
-    fetch('https://blooming-scrubland-09549.herokuapp.com/api/tickets', {
+    fetch('https://raffle-server.onrender.com/api/tickets', {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json'
